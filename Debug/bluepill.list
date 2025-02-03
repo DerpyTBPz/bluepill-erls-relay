@@ -27,25 +27,25 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000029  00000000  00000000  00005014  2**0
                   CONTENTS, READONLY
- 12 .debug_info   0000c90a  00000000  00000000  0000503d  2**0
+ 12 .debug_info   0000c81a  00000000  00000000  0000503d  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 00002155  00000000  00000000  00011947  2**0
+ 13 .debug_abbrev 000020f7  00000000  00000000  00011857  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 00000c98  00000000  00000000  00013aa0  2**3
+ 14 .debug_aranges 00000c78  00000000  00000000  00013950  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_rnglists 00000a11  00000000  00000000  00014738  2**0
+ 15 .debug_rnglists 000009c5  00000000  00000000  000145c8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  0001738b  00000000  00000000  00015149  2**0
+ 16 .debug_macro  0001738b  00000000  00000000  00014f8d  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0000f188  00000000  00000000  0002c4d4  2**0
+ 17 .debug_line   0000ef92  00000000  00000000  0002c318  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00086aae  00000000  00000000  0003b65c  2**0
+ 18 .debug_str    00086a65  00000000  00000000  0003b2aa  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000043  00000000  00000000  000c210a  2**0
+ 19 .comment      00000043  00000000  00000000  000c1d0f  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  0000339c  00000000  00000000  000c2150  2**2
+ 20 .debug_frame  00003304  00000000  00000000  000c1d54  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 00000064  00000000  00000000  000c54ec  2**0
+ 21 .debug_line_str 0000005d  00000000  00000000  000c5058  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -432,10 +432,10 @@ void SystemClock_Config(void)
  8000360:	bd80      	pop	{r7, pc}
 
 08000362 <ScanDataLQ>:
-		}
-	}
-	return 0;
-}
+int lq2 = 50;
+
+int STATUS1 = 0;
+int STATUS2 = 0;
 
 void ScanDataLQ(int* count, int* leftover, int* status, uint8_t* rxBuff, int* lq, int (*processDataLQ)(int*, int*, uint8_t*, int*)) {
  8000362:	b590      	push	{r4, r7, lr}
@@ -1874,7 +1874,7 @@ void HAL_UART_MspInit(UART_HandleTypeDef* uartHandle)
 Reset_Handler:
 
 /* Call the clock system initialization function.*/
-    bl  SystemInit
+	    bl  SystemInit
  8000ac0:	f7ff fe4a 	bl	8000758 <SystemInit>
 
 /* Copy the data segment initializers from flash to SRAM */
